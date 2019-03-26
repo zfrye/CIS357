@@ -1,0 +1,18 @@
+---
+    - name: ensure items installed
+      apt: name={{ item }} state=present
+      with_items:
+        - bind9
+        - bind9utils
+      when: ansible_os_family == "Debian"
+
+    - name: copy name.conf.local
+      copy:
+        src=/home/automat/configs/bind/named.conf.local
+        dest=/etc/bind/named.conf.local
+        owner=root
+        group=root
+        mode=0644
+        backup=yes
+      notify:
+        - restart bind

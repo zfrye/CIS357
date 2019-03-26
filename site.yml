@@ -1,0 +1,20 @@
+---
+    - name: all common hosts
+      hosts: all
+      become: true
+      roles:
+        - common
+
+    - name: webserver hosts
+      hosts: webserver
+      become: true
+      roles:
+        - common
+        - webserver
+
+    - name: dnsserver hosts
+      hosts: dnsserver
+      become: true
+      roles:
+        - common
+        - dnsserver
