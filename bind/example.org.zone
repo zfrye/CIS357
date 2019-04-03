@@ -1,0 +1,15 @@
+$ORIGIN example.org.
+$TTL 86400
+@ SOA dns1.example.org. hostmaster.example.com. (
+  2017031200 ; serial
+  21600 ; refresh after 6 hours
+  3600 ; retry after 1 hour
+  604800 ; expire after 1 week
+  86400 ) ; minimum TTL of 1 day
+  NS dns1.example.org.
+dns1 A 192.168.56.50
+@ MX 10 mail.example.org.
+mail A 192.168.56.50
+services A 192.168.56.12
+ftp CNAME services.example.org.
+www CNAME services.example.org.
